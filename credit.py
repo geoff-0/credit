@@ -17,7 +17,7 @@ card_types = [Card("AMERICAN EXPRESS", [32, 37], [15]), Card("MASTERCARD", [51, 
 def card_type(n):
     for i in range(len(card_types)):
         for j in range(len(card_types[i].prefixes)):
-            if (cut_number(n, 2) == card_types[i].prefixes[j]):
+            if (cut_number(n, len(str(card_types[i].prefixes[j]))) == card_types[i].prefixes[j]):
                 for o in range(len(card_types[i].lengths)):
                     if len(str(n)) == card_types[i].lengths[o]:
                         return card_types[i].company
@@ -62,5 +62,4 @@ if luhn(credit_number) == True:
     print(card_type(credit_number))
 elif luhn(credit_number) != True:
     print("INVALID")
-
-
+ 
